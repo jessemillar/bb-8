@@ -1,1 +1,1 @@
-Run `npm install` and then `node [desired_script]`
+Run `npm install` and then `node [desired_script]`.
