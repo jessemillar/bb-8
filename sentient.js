@@ -13,14 +13,18 @@ var bb8 = sphero(config.BLE);
 
 console.log("Looking for BB-8...");
 
-var headPower = 10;
+var headPower = 7;
 var moveChance = 0.25;
 
 bb8.connect(function() {
   console.log("Found BB-8!");
 
-  // Make sure BB-8 doesn't have his light turned on
-  bb8.color("black");
+  // Flash BB-8's light so we know he's listening
+  bb8.color("purple");
+
+  setInterval(function() {
+    bb8.color("black");
+  }, 1000);
 
   // Every second, there's a certain chance he'll move his head
   setInterval(function() {
@@ -29,5 +33,5 @@ bb8.connect(function() {
       var direction = Math.floor(Math.random() * 360);
       bb8.roll(headPower, direction);
     }
-  }, 3000); // Three second timeout
+  }, 2000);
 });

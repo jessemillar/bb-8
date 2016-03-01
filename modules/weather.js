@@ -12,7 +12,7 @@ module.exports = {
       path: "/api/" + config.WundergroundKey + "/conditions/q/" + config.WundergroundZip + ".json"
     };
 
-    callback = function(response) {
+    makeCall = function(response) {
       var str = "";
 
       // Another chunk of data has been recieved
@@ -35,6 +35,6 @@ module.exports = {
       });
     };
 
-    http.request(options, callback).end();
+    http.request(options, makeCall).end();
   }
 };
