@@ -19,6 +19,9 @@ var moveChance = 0.25;
 bb8.connect(function() {
   console.log("Found BB-8!");
 
+  // Make sure BB-8 doesn't have his light turned on
+  bb8.color("black");
+
   // Every second, there's a certain chance he'll move his head
   setInterval(function() {
     if (Math.random() <= moveChance) {
@@ -26,5 +29,5 @@ bb8.connect(function() {
       var direction = Math.floor(Math.random() * 360);
       bb8.roll(headPower, direction);
     }
-  }, 1000); // One second timeout
+  }, 3000); // Three second timeout
 });
