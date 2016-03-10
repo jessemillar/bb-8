@@ -8,7 +8,7 @@ var config = require('./config');
 // Get the main Sphero SDK module
 var sphero = require("sphero");
 // Get our module for getting Wunderground information
-var weather = require("./modules/weather.js");
+var weather = require("./modules/weather");
 
 // Configure your BB-8's BLE address in the config.js file
 var bb8 = sphero(config.BLE);

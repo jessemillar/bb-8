@@ -4,7 +4,7 @@ Note: Even though this code is written with the BB-8 Sphero in mind,
 */
 
 // Nab our settings file (make sure you make one based off of config-sample.js)
-var config = require('./config');
+var config = require("./config");
 // Get the main Sphero SDK module
 var sphero = require("sphero");
 
