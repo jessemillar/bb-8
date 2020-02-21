@@ -19,13 +19,19 @@ func main() {
 	bb8.SetRGB(0, 0, 0)
 
 	work := func() {
-		gobot.Every(time.Minute, func() {
+		gobot.Every(time.Second*30, func() {
 			bb8.GetPowerState(func(powerState ollie.PowerStatePacket) {
 				fmt.Println("Battery: " + batteryStates[powerState.PowerState-1])
 
 				if powerState.PowerState-1 < 2 {
-					bb8.Roll(1, uint16(gobot.Rand(200)))
+					angle := uint16(gobot.Rand(200))
+					bb8.Roll(1, angle)
+					time.Sleep(time.Second)
+					bb8.Roll(0, angle)
+				} else {
+					os.Exit(1)
 				}
+
 				// r := uint8(gobot.Rand(255))
 				// g := uint8(gobot.Rand(255))
 				// b := uint8(gobot.Rand(255))
